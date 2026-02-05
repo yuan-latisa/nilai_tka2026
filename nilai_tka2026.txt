@@ -149,13 +149,13 @@ MariaDB [db_tka2026]> select min(Matematika) from nilai_tka2026;
 +-----------------+
 1 row in set (0.001 sec)
 
-MariaDB [db_tka2026]> select Nama, Jurusan, Kelas, max(B_Inggris) from nilai_tka2026;
-+------+---------+-------+----------------+
-| Nama | Jurusan | Kelas | max(B_Inggris) |
-+------+---------+-------+----------------+
-| Andi | rpl     | XII   |             92 |
-+------+---------+-------+----------------+
-1 row in set (0.001 sec)
+MariaDB [db_tka2026]> select Nama, Jurusan, Kelas, B_Inggris from nilai_tka2026 where B_Inggris = (select max(B_Inggris) from nilai_tka2026);
++------+---------+-------+-----------+
+| Nama | Jurusan | Kelas | B_Inggris |
++------+---------+-------+-----------+
+| Vina | rpl     | XIII  |        92 |
++------+---------+-------+-----------+
+1 row in set (0.002 sec)
 
 MariaDB [db_tka2026]> select count(*) from nilai_tka2026;
 +----------+
